@@ -1,0 +1,6 @@
+if SHIELD_KNOBLIN
+
+config ZMK_KEYBOARD_NAME
+    default "knoblin"
+
+endif
