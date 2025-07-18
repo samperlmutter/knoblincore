@@ -18,10 +18,8 @@
     };
 
     default_kscan: kscan {
-        compatible = "zmk,kscan-gpio-redirect";
+        compatible = "zmk,kscan-gpio-direct";
         label = "default_kscan";
-        rows = <1>;
-        columns = <3>;
 
         // encoder click
         // S key
