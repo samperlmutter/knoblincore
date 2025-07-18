@@ -20,10 +20,8 @@
     default_kscan: kscan {
         compatible = "zmk,kscan-gpio-redirect";
         label = "default_kscan";
-
-        // encoder click
-        // S key
-        // bootloader
+        rows = <1>;
+        columns = <3>;
         input-gpios =
             <&pro_micro 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
             <&pro_micro 16 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
