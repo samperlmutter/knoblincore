@@ -8,7 +8,7 @@
         label = "Volume encoder";
         a-gpios = <&gpio0 6 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
         b-gpios = <&gpio0 8 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
-        steps = <36>;
+        steps = <18>;
     };
 
     sensors {
@@ -25,9 +25,8 @@
         // S key
         // bootloader
         input-gpios =
-              <&gpio0 17 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            ;
+            <&gpio0 17 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
     };
 };
