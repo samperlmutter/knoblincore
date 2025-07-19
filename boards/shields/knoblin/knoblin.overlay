@@ -6,9 +6,9 @@
     vol_encoder: vol_encoder {
         compatible = "alps,ec11";
         label = "Volume encoder";
-        a-gpios = <&gpio0 6 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
-        b-gpios = <&gpio0 8 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
-        steps = <4>;
+        a-gpios = <&gpio0 6 (GPIO_ACTIVE_LOW)>;
+        b-gpios = <&gpio0 8 (GPIO_ACTIVE_LOW)>;
+        steps = <18>;
     };
 
     sensors {
