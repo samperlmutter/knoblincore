@@ -8,13 +8,13 @@
         label = "Volume encoder";
         a-gpios = <&gpio0 6 (GPIO_ACTIVE_LOW)>;
         b-gpios = <&gpio0 8 (GPIO_ACTIVE_LOW)>;
-        steps = <648>;
+        steps = <4>;
     };
 
     sensors {
         compatible = "zmk,keymap-sensors";
         sensors = <&vol_encoder>;
-        triggers-per-rotation = <36>; // Usually matches steps/detents
+        triggers-per-rotation = <30>;
     };
 
     default_kscan: kscan {
