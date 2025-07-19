@@ -8,7 +8,7 @@
         label = "Volume encoder";
         a-gpios = <&gpio0 6 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
         b-gpios = <&gpio0 8 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
-        steps = <18>;
+        steps = <4>;
     };
 
     sensors {
