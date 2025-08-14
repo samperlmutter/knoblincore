@@ -1,6 +1,7 @@
 / {
     chosen {
         zmk,kscan = &default_kscan;
+        zmk,mouse = &mouse_ps2;
     };
 
     vol_encoder: vol_encoder {
@@ -28,5 +29,51 @@
             <&gpio0 17 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
             <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
             <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
+    };
+
+    mouse_ps2: mouse_ps2 {
+        compatible = "zmk,input-mouse-ps2";
+        label = "PS2_MOUSE";
+
+        ps2-device = <&ps2_0>;
+        
+        // Enable power-on-reset
+        // rst-gpios = <&gpio0 7 GPIO_ACTIVE_HIGH>;
+    };
+};
+
+#define MOUSE_PS2_DRIVER_UART
+
+&pinctrl {
+    uart0_ps2_default: uart0_ps2_default {
+        group1 {
+            psels = <NRF_PSEL(UART_TX, 0, 16)>,
+                    <NRF_PSEL(UART_RX, 0, 15)>;
+        };
+    };
+
+    uart0_ps2_sleep: uart0_ps2_sleep {
+        group1 {
+            psels = <NRF_PSEL(UART_TX, 0, 16)>,
+                    <NRF_PSEL(UART_RX, 0, 15)>;
+            low-power-enable;
+        };
+    };
+};
+
+&uart0 {
+    status = "okay";
+    compatible = "nordic,nrf-uarte";
+    current-speed = <1200>;
+    pinctrl-0 = <&uart0_ps2_default>;
+    pinctrl-1 = <&uart0_ps2_sleep>;
+    pinctrl-names = "default", "sleep";
+
+    ps2_0: ps2_0 {
+        compatible = "zmk,ps2-uart";
+        label = "PS2_0";
+        data-pin = <15>;  // GPIO P0.15 for PS/2 DATA
+        clk-pin = <16>;   // GPIO P0.16 for PS/2 CLK
+        // rst-pin = <7>;    // GPIO P0.07 for reset (optional)
     };
 };
