@@ -177,7 +177,7 @@ pcbs:
         adjust:
           shift: [0, -5]
       nano:
-        what: promicro
+        what: nice_nano
         params:
           orientation: "down"
         where:

@@ -2,3 +2,4 @@
 *.uf2
 CLAUDE_ZMK_SETUP.md
 .DS_Store
+ergogen/output/
