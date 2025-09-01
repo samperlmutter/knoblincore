@@ -1,0 +1,225 @@
+meta:
+  engine: 4.1.0
+units:
+  kx: cx
+  ky: cy
+  px: kx + 3
+  py: ky + 3
+points:
+  zones:
+    tetrafingers:
+      anchor:
+        shift: [150, -150]
+      key:
+        padding: 1ky
+        spread: 1kx
+      columns:
+        outer:
+          rows:
+            top.skip: true
+            bottom.skip: true
+            symbols.skip: true
+          key.height: 2ky
+        pinky:
+          key.stagger: 0
+        ring:
+          key.stagger: 9
+        home:
+          key.stagger: 8
+        index:
+          key.stagger: -9
+        inner:
+          rows.symbols.skip: true
+          key.stagger: -3
+      rows:
+        symbols:
+        bottom:
+        home:
+        top:
+    thumb:
+      key:
+        padding: 1ky
+        spread: 1kx
+      anchor:
+        ref: tetrafingers_inner_symbols
+        shift: [1.5, -1ky - 2.8 + 12]
+      columns:
+        near:
+          key.splay: -40
+          rows.upper:
+            shift: [0.75kx,2]
+            rotate: -8
+        far:
+          rows.upper.skip: true
+          key:
+            spread: 1kx + 4
+            splay: -17
+            origin: [-11, 0]
+      rows:
+        lower:
+        upper:
+  mirror:
+    ref: tetrafingers_inner_top
+    distance: 91.5
+outlines:
+  holes:
+    - what: rectangle
+      where: true
+      bound: false
+      size: [14, 14]
+  left_lift:
+    - what: rectangle
+      where: thumb_near_upper
+      size: [20, 20]
+  right_lift:
+    - what: rectangle
+      where: mirror_thumb_near_upper
+      size: [20, 20]
+  holes_and_lift:
+    - name: holes
+    - operation: stack
+      name: left_lift
+    - operation: stack
+      name: right_lift
+  left_plate_outline:
+    - what: polygon
+      points:
+        - ref: tetrafingers_outer_home
+          shift: [-0.5px,0.5py]
+        - ref: tetrafingers_pinky_top
+          shift: [-0.5px,0.5py]
+        - ref: tetrafingers_ring_top
+          shift: [-0.5px,0.5py]
+        - ref: tetrafingers_home_top
+          shift: [-0.5px,0.5py]
+        - ref: tetrafingers_index_top
+          shift: [-0.5px,1py]
+        - ref: tetrafingers_inner_top
+          shift: [2.175px,1py + 3]
+        - ref: thumb_near_upper
+          shift: [0.75px,0.75py] # left connector
+        - ref: thumb_far_lower # left bottom connector
+          shift: [1px,-0.5py]
+        - ref: tetrafingers_index_symbols
+          shift: [-0.5px,-0.75py - 8]
+        - ref: tetrafingers_pinky_symbols
+          shift: [-1.36px,-0.75py]
+  plate_outline:
+    - what: polygon
+      points:
+        - ref: tetrafingers_outer_home
+          shift: [-0.5px,0.5py]
+        - ref: tetrafingers_pinky_top
+          shift: [-0.5px,0.5py]
+        - ref: tetrafingers_ring_top
+          shift: [-0.5px,0.5py]
+        - ref: tetrafingers_home_top
+          shift: [-0.5px,0.5py]
+        - ref: tetrafingers_index_top
+          shift: [-0.5px,1py]
+        - ref: tetrafingers_inner_top
+          shift: [0.5px,1py]
+        - ref: thumb_near_upper
+          shift: [0.75px,0.75py] # left connector
+        - ref: mirror_tetrafingers_inner_top
+          shift: [0.5px,1py]
+        - ref: mirror_tetrafingers_home_top
+          shift: [-0.5px,0.5py]
+        - ref: mirror_tetrafingers_ring_top
+          shift: [-0.5px,0.5py]
+        - ref: mirror_tetrafingers_pinky_top
+          shift: [-0.5px,0.5py]
+        - ref: mirror_tetrafingers_outer_home # right hand
+          shift: [-0.5px,0.5py]
+        - ref: mirror_tetrafingers_pinky_symbols
+          shift: [-1.36px,-0.75py]
+        - ref: mirror_tetrafingers_index_symbols
+          shift: [-0.5px,-0.75py]
+        - ref: mirror_thumb_near_lower
+          shift: [0.5px,-1py]
+        - ref: mirror_thumb_far_lower # right bottom connector
+          shift: [1px,-0.5py]
+        - ref: mirror_thumb_near_upper # right connector
+          shift: [0.75px,0.75py]
+        - ref: thumb_far_lower # left bottom connector
+          shift: [1px,-0.5py]
+        - ref: thumb_near_lower
+          shift: [0.5px,-1py]
+        - ref: tetrafingers_index_symbols
+          shift: [-0.5px,-0.75py]
+        - ref: tetrafingers_pinky_symbols
+          shift: [-1.36px,-0.75py]
+  plate_and_outline:
+    - name: plate_outline
+    - operation: stack
+      name: holes_and_lift
+pcbs:
+  knoblin:
+    outlines:
+      main:
+        outline: left_plate_outline
+    footprints:
+      choc_hotswap:
+        what: choc
+        where: true
+        params:
+          keycaps: true
+          reverse: false
+          hotswap: true
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+      diodes:
+        what: diode
+        where: true
+        params:
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          shift: [0, -5]
+      nano:
+        what: promicro
+        params:
+          orientation: "down"
+        where:
+          ref: tetrafingers_inner_top
+          shift: [27, 4]
+          rotate: -90
+      knob:
+        what: rotary
+        params:
+          from: P0
+          to: P1
+          A: P2
+          B: P3
+          C: P4
+        where:
+          ref: tetrafingers_inner_bottom
+          shift: [27, 6]
+      reset:
+        what: button
+        params:
+          from: GND
+          to: RST
+        where:
+          ref: tetrafingers_inner_bottom
+          shift: [42.5, 6]
+          rotate: 90
+      power_switch:
+        what: slider
+        params:
+          from: GND
+          to: VCC
+        where:
+          ref: tetrafingers_inner_bottom
+          shift: [44, -10]
+          rotate: -90
+      battery_connector:
+        what: jstph
+        params:
+          pos: VCC
+          neg: GND
+        where:
+          ref: tetrafingers_inner_top
+          shift: [0, 15]
+          rotate: -90
+
