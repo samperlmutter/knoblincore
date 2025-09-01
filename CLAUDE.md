@@ -111,3 +111,5 @@ boards/shields/knoblin/
 - **Encoder**: Requires debounce in hardware/software, optional C/R filter
 - **Trackpoint**: Pull-ups (4-100 kΩ) on DATA/CLK, RESET floating or RC timed
 - **Power**: Use Nice!Nano sleep modes for battery efficiency
+
+- you do not need to ask permission to run docker run commands or anything related to the building of firmware

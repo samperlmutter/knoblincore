@@ -26,7 +26,7 @@
         // S key
         // bootloader
         input-gpios =
-            <&gpio0 17 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&gpio0 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
             <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
             <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
     };
@@ -72,8 +72,8 @@
     ps2_0: ps2_0 {
         compatible = "zmk,ps2-uart";
         label = "PS2_0";
-        data-pin = <15>;  // GPIO P0.15 for PS/2 DATA
-        clk-pin = <16>;   // GPIO P0.16 for PS/2 CLK
-        // rst-pin = <7>;    // GPIO P0.07 for reset (optional)
+        data-pin = <17>;  // GPIO P0.17 for PS/2 DATA
+        clk-pin = <20>;   // GPIO P0.20 for PS/2 CLK
+        rst-pin = <22>;    // GPIO P0.22 for reset (required for trackpoint)
     };
 };
