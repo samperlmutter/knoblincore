@@ -35,6 +35,9 @@ Knoblin is a custom mechanical keyboard platform combining:
   7. MIDDLE BTN
   8. RIGHT BTN
 
+### More info on Sprintek testing
+@TRACKPOINT_TESTING_GUIDE.md
+
 ## Firmware Stack
 - **Controller**: Nice!Nano (nRF52840) with ZMK firmware
 - **Current Status**: Basic 3-key + encoder setup working
@@ -43,6 +46,9 @@ Knoblin is a custom mechanical keyboard platform combining:
   - `knoblin.overlay` - Hardware pin definitions  
   - `knoblin.keymap` - Key bindings and sensor config
   - `knoblin.conf` - Feature toggles
+
+### Building zmk locally 
+ZMK can be built locally with the following guide: @CLAUDE_ZMK_SETUP.md
 
 ## Current Pin Assignments (from overlay)
 ```
