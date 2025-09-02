@@ -20,22 +20,32 @@ points:
             bottom.skip: true
             symbols.skip: true
           key.height: 2ky
+          key.column_net: P031
         pinky:
           key.stagger: 0
+          key.column_net: P029
         ring:
           key.stagger: 9
+          key.column_net: P002
         home:
           key.stagger: 8
+          key.column_net: P115
         index:
           key.stagger: -9
+          key.column_net: P113
         inner:
           rows.symbols.skip: true
           key.stagger: -3
+          key.column_net: P111
       rows:
         symbols:
+          key.row_net: P024
         bottom:
+          key.row_net: P100
         home:
+          key.row_net: P009
         top:
+          key.row_net: P010
     thumb:
       key:
         padding: 1ky
@@ -49,15 +59,20 @@ points:
           rows.upper:
             shift: [0.75kx,2]
             rotate: -8
+            column_net: P111
+          rows.lower.column_net: P113
         far:
           rows.upper.skip: true
+          rows.lower.column_net: P113
           key:
             spread: 1kx + 4
             splay: -17
             origin: [-11, 0]
       rows:
         lower:
+          key.row_net: P024
         upper:
+          key.row_net: P100
   mirror:
     ref: tetrafingers_inner_top
     distance: 91.5
@@ -187,11 +202,11 @@ pcbs:
       knob:
         what: rotary
         params:
-          from: P0
-          to: P1
-          A: P2
-          B: P3
-          C: P4
+          from: P011
+          to: GND
+          A: P104
+          B: P106
+          C: GND
         where:
           ref: tetrafingers_inner_bottom
           shift: [27, 6]
