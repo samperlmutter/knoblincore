@@ -110,16 +110,16 @@ outlines:
         - ref: tetrafingers_index_top
           shift: [-0.5px,1py]
         - ref: tetrafingers_inner_top
-          shift: [2.175px,1py + 3]
+          shift: [2.175px + 3,1py + 3]
         - ref: thumb_near_upper
-          shift: [0.75px,0.75py] # left connector
+          shift: [0.75px + 3,0.75py] # left connector
         - ref: thumb_far_lower # left bottom connector
           shift: [1px,-0.5py]
         - ref: tetrafingers_index_symbols
           shift: [-0.5px,-0.75py - 8]
         - ref: tetrafingers_pinky_symbols
           shift: [-1.36px,-0.75py]
-  plate_outline:
+  both_plate_outline:
     - what: polygon
       points:
         - ref: tetrafingers_outer_home
@@ -133,13 +133,11 @@ outlines:
         - ref: tetrafingers_index_top
           shift: [-0.5px,1py]
         - ref: tetrafingers_inner_top
-          shift: [0.5px,1py]
-        - ref: thumb_near_upper
-          shift: [0.75px,0.75py] # left connector
+          shift: [2.175px + 3,1py + 3]
         - ref: mirror_tetrafingers_inner_top
-          shift: [0.5px,1py]
+          shift: [2.175px,1py + 3]
         - ref: mirror_tetrafingers_home_top
-          shift: [-0.5px,0.5py]
+          shift: [-0.5px,0.5py + 1]
         - ref: mirror_tetrafingers_ring_top
           shift: [-0.5px,0.5py]
         - ref: mirror_tetrafingers_pinky_top
@@ -158,14 +156,12 @@ outlines:
           shift: [0.75px,0.75py]
         - ref: thumb_far_lower # left bottom connector
           shift: [1px,-0.5py]
-        - ref: thumb_near_lower
-          shift: [0.5px,-1py]
         - ref: tetrafingers_index_symbols
-          shift: [-0.5px,-0.75py]
+          shift: [-0.5px,-0.75py - 8]
         - ref: tetrafingers_pinky_symbols
           shift: [-1.36px,-0.75py]
   plate_and_outline:
-    - name: plate_outline
+    - name: both_plate_outline
     - operation: stack
       name: holes_and_lift
 pcbs:
@@ -191,14 +187,25 @@ pcbs:
           to: "{{row_net}}"
         adjust:
           shift: [0, -5]
-      nano:
+      nice_nano:
         what: nice_nano
         params:
           orientation: "down"
+          type: "nicenano"
         where:
           ref: tetrafingers_inner_top
-          shift: [27, 4]
-          rotate: -90
+          shift: [30, -3]
+          rotate: -180
+      nice_view:
+        what: nice_view
+        params:
+          SDA: P0
+          SCL: P1,
+          CS: P2
+        where:
+          ref: tetrafingers_inner_top
+          shift: [40, -15]
+          rotate: 90
       knob:
         what: rotary
         params:
@@ -209,7 +216,8 @@ pcbs:
           C: GND
         where:
           ref: tetrafingers_inner_bottom
-          shift: [27, 6]
+          shift: [24.8, 7]
+          rotate: -90
       reset:
         what: button
         params:
@@ -217,7 +225,7 @@ pcbs:
           to: RST
         where:
           ref: tetrafingers_inner_bottom
-          shift: [42.5, 6]
+          shift: [44.5, 6]
           rotate: 90
       power_switch:
         what: slider
@@ -226,7 +234,7 @@ pcbs:
           to: VCC
         where:
           ref: tetrafingers_inner_bottom
-          shift: [44, -10]
+          shift: [46, -10]
           rotate: -90
       battery_connector:
         what: jstph
@@ -235,6 +243,5 @@ pcbs:
           neg: GND
         where:
           ref: tetrafingers_inner_top
-          shift: [0, 15]
-          rotate: -90
+          shift: [30, 15]
 
