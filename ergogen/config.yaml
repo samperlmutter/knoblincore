@@ -236,12 +236,3 @@ pcbs:
           ref: tetrafingers_inner_bottom
           shift: [46, -10]
           rotate: -90
-      battery_connector:
-        what: jstph
-        params:
-          pos: VCC
-          neg: GND
-        where:
-          ref: tetrafingers_inner_top
-          shift: [30, 15]
-
