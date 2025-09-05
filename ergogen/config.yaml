@@ -20,32 +20,32 @@ points:
             bottom.skip: true
             symbols.skip: true
           key.height: 2ky
-          key.column_net: P031
+          key.column_net: P21
         pinky:
           key.stagger: 0
-          key.column_net: P029
+          key.column_net: P20
         ring:
           key.stagger: 9
-          key.column_net: P002
+          key.column_net: P19
         home:
           key.stagger: 8
-          key.column_net: P115
+          key.column_net: P18
         index:
           key.stagger: -9
-          key.column_net: P113
+          key.column_net: P15
         inner:
           rows.symbols.skip: true
           key.stagger: -3
-          key.column_net: P111
+          key.column_net: P14
       rows:
         symbols:
-          row_net: P024
+          row_net: P8
         bottom:
-          row_net: P100
+          row_net: P9
         home:
-          row_net: P009
+          row_net: P10
         top:
-          row_net: P010
+          row_net: P16
     thumb:
       key:
         padding: 1ky
@@ -59,20 +59,20 @@ points:
           rows.upper:
             shift: [0.75kx,2]
             rotate: -8
-            column_net: P111
-          rows.lower.column_net: P113
+            column_net: P7
+          rows.lower.column_net: P14
         far:
           rows.upper.skip: true
-          rows.lower.column_net: P113
+          rows.lower.column_net: P7
           key:
             spread: 1kx + 4
             splay: -17
             origin: [-11, 0]
       rows:
         lower:
-          row_net: P024
+          row_net: P8
         upper:
-          row_net: P100
+          row_net: P9
   mirror:
     ref: tetrafingers_inner_top
     distance: 91.5
@@ -199,9 +199,9 @@ pcbs:
       nice_view:
         what: nice_view
         params:
-          SDA: P0
-          SCL: P1,
-          CS: P2
+          SDA: P6
+          SCL: P5
+          CS: P4
         where:
           ref: tetrafingers_inner_top
           shift: [40, -15]
@@ -209,10 +209,10 @@ pcbs:
       knob:
         what: rotary
         params:
-          from: P011
+          from: NN_107
           to: GND
-          A: P104
-          B: P106
+          A: NN_101
+          B: NN_102
           C: GND
         where:
           ref: tetrafingers_inner_bottom
