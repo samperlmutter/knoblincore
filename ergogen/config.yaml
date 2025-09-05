@@ -39,13 +39,13 @@ points:
           key.column_net: P111
       rows:
         symbols:
-          key.row_net: P024
+          row_net: P024
         bottom:
-          key.row_net: P100
+          row_net: P100
         home:
-          key.row_net: P009
+          row_net: P009
         top:
-          key.row_net: P010
+          row_net: P010
     thumb:
       key:
         padding: 1ky
@@ -70,9 +70,9 @@ points:
             origin: [-11, 0]
       rows:
         lower:
-          key.row_net: P024
+          row_net: P024
         upper:
-          key.row_net: P100
+          row_net: P100
   mirror:
     ref: tetrafingers_inner_top
     distance: 91.5
