@@ -258,3 +258,24 @@ pcbs:
         where:
           ref: tetrafingers_inner_bottom
           shift: [36, -5]
+      trackpoint_sensor_test:
+        what: sprintek_sk8707_sensor
+        params:
+          orientation: "up"
+          DATA: P0.17
+          CLK: P0.20
+          RESET: P0.22
+        where:
+          ref: tetrafingers_index_symbols
+          shift: [20, -20]
+      trackpoint_driver_test:
+        what: sprintek_sk8707_driver
+        params:
+          orientation: "up"
+          DATA: P0.17
+          CLK: P0.20
+          RESET: P0.22
+        where:
+          ref: tetrafingers_index_top
+          shift: [0, 20]
+          rotate: -90
