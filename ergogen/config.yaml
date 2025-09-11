@@ -155,7 +155,7 @@ outlines:
         - ref: mirror_thumb_near_upper # right connector
           shift: [0.75px,0.75py]
         - ref: thumb_far_lower # left bottom connector
-          shift: [1px,-0.5py]
+          shift:tetrafingers_outer_home [1px,-0.5py]
         - ref: tetrafingers_index_symbols
           shift: [-0.5px,-0.75py - 8]
         - ref: tetrafingers_pinky_symbols
@@ -165,14 +165,14 @@ outlines:
     - operation: stack
       name: holes_and_lift
 pcbs:
-  knoblin:
+  knoblin_left:
     outlines:
       main:
         outline: left_plate_outline
     footprints:
       choc_hotswap:
         what: choc
-        where: true
+        where: /^tetrafingers_.*/
         params:
           keycaps: true
           reverse: false
@@ -180,8 +180,8 @@ pcbs:
           from: "{{column_net}}"
           to: "{{colrow}}"
       diodes:
-        what: diode
-        where: true
+        what: thru-hole-diode
+        where: /^tetrafingers_.*/
         params:
           from: "{{colrow}}"
           to: "{{row_net}}"
@@ -230,7 +230,7 @@ pcbs:
       power_switch:
         what: slider
         params:
-          from: GND
+          from: RAW
           to: VCC
         where:
           ref: tetrafingers_inner_bottom
