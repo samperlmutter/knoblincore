@@ -230,9 +230,31 @@ pcbs:
       power_switch:
         what: slider
         params:
-          from: RAW
-          to: VCC
+          from: BAT_POS
+          to: RAW
         where:
           ref: tetrafingers_inner_bottom
           shift: [46, -10]
           rotate: -90
+      battery_pad_pos:
+        what: pad
+        params:
+          front: false
+          text: BAT_POS
+          net: BAT_POS
+          width: 2
+          height: 2
+        where:
+          ref: tetrafingers_inner_bottom
+          shift: [36, -10]
+      battery_pad_neg:
+        what: pad
+        params:
+          front: false
+          text: BAT_NEG
+          net: GND
+          width: 2
+          height: 2
+        where:
+          ref: tetrafingers_inner_bottom
+          shift: [36, -5]
