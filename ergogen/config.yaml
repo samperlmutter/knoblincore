@@ -155,7 +155,7 @@ outlines:
         - ref: mirror_thumb_near_upper # right connector
           shift: [0.75px,0.75py]
         - ref: thumb_far_lower # left bottom connector
-          shift:tetrafingers_outer_home [1px,-0.5py]
+          shift: [1px,-0.5py]
         - ref: tetrafingers_index_symbols
           shift: [-0.5px,-0.75py - 8]
         - ref: tetrafingers_pinky_symbols
@@ -172,7 +172,7 @@ pcbs:
     footprints:
       choc_hotswap:
         what: choc
-        where: /^tetrafingers_.*/
+        where: /^(?:thumb|tetrafingers)[\w-]*$/
         params:
           keycaps: true
           reverse: false
@@ -181,7 +181,7 @@ pcbs:
           to: "{{colrow}}"
       diodes:
         what: thru-hole-diode
-        where: /^tetrafingers_.*/
+        where: /^(?:thumb|tetrafingers)[\w-]*$/
         params:
           from: "{{colrow}}"
           to: "{{row_net}}"
