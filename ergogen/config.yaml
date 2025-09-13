@@ -116,34 +116,32 @@ outlines:
         - ref: thumb_far_lower # left bottom connector
           shift: [1px,-0.5py]
         - ref: tetrafingers_index_symbols
-          shift: [0px,-2.5py]
-        - ref: tetrafingers_index_symbols
-          shift: [-0.5px,-0.75py - 20]
+          shift: [-0.5px,-0.75py - 8]
         - ref: tetrafingers_pinky_symbols
           shift: [-1.36px,-0.75py]
   right_plate_outline:
     - what: polygon
       points:
-        - ref: mirror_tetrafingers_inner_top
-          shift: [2.175px,1py + 3]
-        - ref: mirror_tetrafingers_home_top
-          shift: [-0.5px,0.5py + 1]
-        - ref: mirror_tetrafingers_ring_top
+        - ref: mirror_tetrafingers_outer_home
           shift: [-0.5px,0.5py]
         - ref: mirror_tetrafingers_pinky_top
           shift: [-0.5px,0.5py]
-        - ref: mirror_tetrafingers_outer_home
+        - ref: mirror_tetrafingers_ring_top
           shift: [-0.5px,0.5py]
+        - ref: mirror_tetrafingers_home_top
+          shift: [-0.5px,0.5py]
+        - ref: mirror_tetrafingers_index_top
+          shift: [-0.5px,1py]
+        - ref: mirror_tetrafingers_inner_top
+          shift: [2.175px + 3,1py + 3]
+        - ref: mirror_thumb_near_upper
+          shift: [0.75px + 3,0.75py]
+        - ref: mirror_thumb_far_lower
+          shift: [1px,-0.5py]
+        - ref: mirror_tetrafingers_index_symbols
+          shift: [-0.5px,-0.75py - 8]
         - ref: mirror_tetrafingers_pinky_symbols
           shift: [-1.36px,-0.75py]
-        - ref: mirror_tetrafingers_index_symbols
-          shift: [-0.5px,-0.75py - 20]
-        - ref: mirror_tetrafingers_index_symbols
-          shift: [0px,-2.5py]
-        - ref: mirror_thumb_far_lower # right bottom connector
-          shift: [1px,-0.5py]
-        - ref: mirror_thumb_near_upper # right connector
-          shift: [0.75px,0.75py]
   both_plate_outline:
     - what: polygon
       points:
@@ -312,7 +310,7 @@ pcbs:
           type: "nicenano"
         where:
           ref: mirror_tetrafingers_inner_top
-          shift: [28, -3]
+          shift: [30, -3]
           rotate: 0
       nice_view:
         what: nice_view
@@ -322,7 +320,7 @@ pcbs:
           CS: P4
         where:
           ref: mirror_tetrafingers_inner_top
-          shift: [38, -15]
+          shift: [40, -15]
           rotate: -90
       knob:
         what: rotary
@@ -334,7 +332,7 @@ pcbs:
           C: GND
         where:
           ref: mirror_tetrafingers_inner_bottom
-          shift: [24.8 - 2, 7]
+          shift: [24.8, 7]
           rotate: 90
       reset:
         what: button
@@ -343,7 +341,7 @@ pcbs:
           to: RST
         where:
           ref: mirror_tetrafingers_inner_bottom
-          shift: [42.5, 6]
+          shift: [44.5, 6]
           rotate: 90
       power_switch:
         what: slider
@@ -352,7 +350,7 @@ pcbs:
           to: RAW
         where:
           ref: mirror_tetrafingers_inner_bottom
-          shift: [44, -10]
+          shift: [46, -10]
           rotate: -90
       battery_pad_pos:
         what: pad
@@ -376,75 +374,3 @@ pcbs:
         where:
           ref: mirror_tetrafingers_inner_bottom
           shift: [36, -5]
-      trackpoint_sensor:
-        what: sprintek_sk8707_sensor
-        params:
-          orientation: "up"
-          # Board dimensions
-          board_width: 13.2
-          board_height: 18.29
-          # Pad specifications - matching driver board top pads
-          pad_count: 4
-          pad_spacing: 2.4
-          pad_width: 2.25
-          pad_height: 2.25
-          pad_offset_from_edge: 0.6
-          # Layout
-          courtyard_margin: 0.5
-          label_offset_y: 2.355
-          # Adjustable positioning for all pads
-          pad_offset_x: 0
-          pad_offset_y: 1
-          # Net assignments - 4 numbered pads (connect to driver board top pads)
-          PAD1: SENSOR_PAD1
-          PAD2: SENSOR_PAD2
-          PAD3: SENSOR_PAD3
-          PAD4: SENSOR_PAD4
-        where:
-          ref: mirror_tetrafingers_inner_bottom
-          shift: [-2.5, -45.5]
-      trackpoint_driver:
-        what: sprintek_sk8707_driver
-        params:
-          orientation: "up"
-          # Board dimensions
-          board_width: 23
-          board_height: 14.5
-          # Bottom pad set
-          bottom_pad_count: 8
-          bottom_pad_spacing: 1.8
-          bottom_pad_width: 1.0
-          bottom_pad_height: 1.2
-          bottom_pad_start_x: -3.08
-          bottom_pad_offset_from_edge: 0.6
-          # Top pad set
-          top_pad_count: 4
-          top_pad_spacing: 2.4
-          top_pad_width: 2.25
-          top_pad_height: 2.25
-          top_pad_center_x: 0
-          top_pad_offset_from_edge: 0.6
-          # Layout
-          courtyard_margin: 0.5
-          label_offset_y: 2.775
-          # Adjustable positioning for top pads
-          top_pad_offset_x: 0
-          top_pad_offset_y: 0
-          # Net assignments - Bottom pad set (8 pads, connect to Nice!Nano)
-          GND: GND
-          DATA: P0.17
-          CLK: P0.20
-          RST: P0.22
-          VCC: VCC
-          LEFT: LEFT_BTN
-          MIDDLE: MIDDLE_BTN
-          RIGHT: RIGHT_BTN
-          # Net assignments - Top pad set (4 pads, connect to sensor board)
-          TOP_PAD1: SENSOR_PAD1
-          TOP_PAD2: SENSOR_PAD2
-          TOP_PAD3: SENSOR_PAD3
-          TOP_PAD4: SENSOR_PAD4
-        where:
-          ref: mirror_tetrafingers_home_symbols
-          shift: [0, -25]
-          rotate: -90
