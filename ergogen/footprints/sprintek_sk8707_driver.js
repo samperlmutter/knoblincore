@@ -14,7 +14,7 @@ module.exports = {
     bottom_pad_spacing: 1.8,
     bottom_pad_width: 1.0,
     bottom_pad_height: 1.2,
-    bottom_pad_start_x: -8.42,
+    bottom_pad_start_x: -3.08,
     bottom_pad_offset_from_edge: 0.6,
     // Top pad set
     top_pad_count: 4,
@@ -82,8 +82,8 @@ module.exports = {
       const top_label_y = top_pad_edge_y - p.label_offset_y
       
       // Bottom pad calculations
-      const bottom_labels = ['GND', 'DATA', 'CLK', 'RST', 'VCC', 'LEFT', 'MID', 'RIGHT']
-      const bottom_nets = [p.GND.str, p.DATA.str, p.CLK.str, p.RST.str, p.VCC.str, p.LEFT.str, p.MIDDLE.str, p.RIGHT.str]
+      const bottom_labels = ['RIGHT', 'MID', 'LEFT', 'VCC', 'RST', 'CLK', 'DATA', 'GND']
+      const bottom_nets = [p.RIGHT.str, p.MIDDLE.str, p.LEFT.str, p.VCC.str, p.RST.str, p.CLK.str, p.DATA.str, p.GND.str]
       
       // Top pad calculations with offset
       const top_total_width = (p.top_pad_count - 1) * p.top_pad_spacing

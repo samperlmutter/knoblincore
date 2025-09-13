@@ -415,7 +415,7 @@ pcbs:
           bottom_pad_spacing: 1.8
           bottom_pad_width: 1.0
           bottom_pad_height: 1.2
-          bottom_pad_start_x: -8.42
+          bottom_pad_start_x: -3.08
           bottom_pad_offset_from_edge: 0.6
           # Top pad set
           top_pad_count: 4
