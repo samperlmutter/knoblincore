@@ -308,7 +308,7 @@ pcbs:
       nice_nano:
         what: nice_nano
         params:
-          orientation: "down"
+          orientation: "up"
           type: "nicenano"
         where:
           ref: mirror_tetrafingers_inner_top
