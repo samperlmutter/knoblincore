@@ -281,6 +281,41 @@ pcbs:
         where:
           ref: tetrafingers_inner_bottom
           shift: [36, -5]
+      bottom_left_hole:
+        what: hole_m2
+        where:
+          ref: tetrafingers_pinky_symbols
+          shift: [-20, -8]
+      top_left_hole:
+        what: hole_m2
+        where:
+          ref: tetrafingers_pinky_top
+          shift: [8, 10]
+      top_right_hole:
+        what: hole_m2
+        where:
+          ref: tetrafingers_inner_top
+          shift: [25, 19]
+      bottom_right_hole:
+        what: hole_m2
+        where:
+          ref: tetrafingers_inner_bottom
+          shift: [33, -35]
+      bottom_middle_hole:
+        what: hole_m2
+        where:
+          ref: tetrafingers_home_symbols
+          shift: [0, -27]
+      middle_middle_hole:
+        what: hole_m2
+        where:
+          ref: tetrafingers_home_home
+          shift: [8, -8]
+      middle_right_hole:
+        what: hole_m2
+        where:
+          ref: tetrafingers_inner_home
+          shift: [12, -10]
   knoblin_right:
     outlines:
       main:
@@ -374,3 +409,38 @@ pcbs:
         where:
           ref: mirror_tetrafingers_inner_bottom
           shift: [36, -5]
+      bottom_right_hole:
+        what: hole_m2
+        where:
+          ref: mirror_tetrafingers_pinky_symbols
+          shift: [-20, -8]
+      top_right_hole:
+        what: hole_m2
+        where:
+          ref: mirror_tetrafingers_pinky_top
+          shift: [8, 8]
+      top_left_hole:
+        what: hole_m2
+        where:
+          ref: mirror_tetrafingers_inner_top
+          shift: [25, 19]
+      bottom_left_hole:
+        what: hole_m2
+        where:
+          ref: mirror_tetrafingers_inner_bottom
+          shift: [33, -35]
+      bottom_middle_hole:
+        what: hole_m2
+        where:
+          ref: mirror_tetrafingers_home_symbols
+          shift: [0, -27]
+      middle_middle_hole:
+        what: hole_m2
+        where:
+          ref: mirror_tetrafingers_home_home
+          shift: [8, -10]
+      middle_left_hole:
+        what: hole_m2
+        where:
+          ref: mirror_tetrafingers_inner_home
+          shift: [12, -10]
