@@ -77,9 +77,14 @@ points:
     ref: tetrafingers_inner_top
     distance: -50
 outlines:
-  holes:
+  left_keyholes:
     - what: rectangle
-      where: true
+      where: /^(?:thumb|tetrafingers)[\w-]*$/
+      bound: false
+      size: [14, 14]
+  right_keyholes:
+    - what: rectangle
+      where: /^(?:mirror_thumb|mirror_tetrafingers)[\w-]*$/
       bound: false
       size: [14, 14]
   left_lift:
@@ -90,12 +95,6 @@ outlines:
     - what: rectangle
       where: mirror_thumb_near_upper
       size: [20, 20]
-  holes_and_lift:
-    - name: holes
-    - operation: stack
-      name: left_lift
-    - operation: stack
-      name: right_lift
   left_plate_outline:
     - what: polygon
       points:
@@ -112,8 +111,8 @@ outlines:
         - ref: tetrafingers_inner_top
           shift: [2.175px + 3,1py + 3]
         - ref: thumb_near_upper
-          shift: [0.75px + 3,0.75py] # left connector
-        - ref: thumb_far_lower # left bottom connector
+          shift: [0.75px + 3,0.75py]
+        - ref: thumb_far_lower
           shift: [1px,-0.5py]
         - ref: tetrafingers_index_symbols
           shift: [-0.5px,-0.75py - 8]
@@ -142,51 +141,22 @@ outlines:
           shift: [-0.5px,-0.75py - 8]
         - ref: mirror_tetrafingers_pinky_symbols
           shift: [-1.36px,-0.75py]
-  both_plate_outline:
-    - what: polygon
-      points:
-        - ref: tetrafingers_outer_home
-          shift: [-0.5px,0.5py]
-        - ref: tetrafingers_pinky_top
-          shift: [-0.5px,0.5py]
-        - ref: tetrafingers_ring_top
-          shift: [-0.5px,0.5py]
-        - ref: tetrafingers_home_top
-          shift: [-0.5px,0.5py]
-        - ref: tetrafingers_index_top
-          shift: [-0.5px,1py]
-        - ref: tetrafingers_inner_top
-          shift: [2.175px + 3,1py + 3]
-        - ref: mirror_tetrafingers_inner_top
-          shift: [2.175px,1py + 3]
-        - ref: mirror_tetrafingers_home_top
-          shift: [-0.5px,0.5py + 1]
-        - ref: mirror_tetrafingers_ring_top
-          shift: [-0.5px,0.5py]
-        - ref: mirror_tetrafingers_pinky_top
-          shift: [-0.5px,0.5py]
-        - ref: mirror_tetrafingers_outer_home # right hand
-          shift: [-0.5px,0.5py]
-        - ref: mirror_tetrafingers_pinky_symbols
-          shift: [-1.36px,-0.75py]
-        - ref: mirror_tetrafingers_index_symbols
-          shift: [-0.5px,-0.75py]
-        - ref: mirror_thumb_near_lower
-          shift: [0.5px,-1py]
-        - ref: mirror_thumb_far_lower # right bottom connector
-          shift: [1px,-0.5py]
-        - ref: mirror_thumb_near_upper # right connector
-          shift: [0.75px,0.75py]
-        - ref: thumb_far_lower # left bottom connector
-          shift: [1px,-0.5py]
-        - ref: tetrafingers_index_symbols
-          shift: [-0.5px,-0.75py - 8]
-        - ref: tetrafingers_pinky_symbols
-          shift: [-1.36px,-0.75py]
-  plate_and_outline:
-    - name: both_plate_outline
+  left_plate_outline_keyholes:
+    - name: left_plate_outline
     - operation: stack
-      name: holes_and_lift
+      name: left_keyholes
+  left_plate_outline_keyholes_lift:
+    - name: left_plate_outline_keyholes
+    - operation: stack
+      name: left_lift
+  right_plate_outline_keyholes:
+    - name: right_plate_outline
+    - operation: stack
+      name: right_keyholes
+  right_plate_outline_keyholes_lift:
+    - name: right_plate_outline_keyholes
+    - operation: stack
+      name: right_lift
 pcbs:
   knoblin_left:
     outlines:
